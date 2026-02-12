@@ -4,12 +4,33 @@
     let lastFocusedElement = null;
 
     document.addEventListener('DOMContentLoaded', function() {
+        initMobileMenu();
         initFAQAccordion();
         initBudgetCalculator();
         initDynamicProjects();
         initGalleryLightbox();
         initMap();
     });
+
+    function initMobileMenu() {
+        const toggleBtn = document.getElementById('menu-toggle');
+        const nav = document.getElementById('main-nav');
+        if (!toggleBtn || !nav) return;
+
+        toggleBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            const isOpen = nav.classList.contains('active');
+            toggleBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Fecha o menu ao clicar num link
+        nav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                nav.classList.remove('active');
+                toggleBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
 
     function initFAQAccordion() {
         const faqContainer = document.getElementById('faq-container');
@@ -337,11 +358,16 @@
     }
 
     function initGalleryLightbox() {
+        // Só inicializa se houver projetos na página
+        const projectsContainer = document.getElementById('projects-grid');
+        if (!projectsContainer) return;
+        
         let lightboxOverlay = document.getElementById('lightbox-overlay');
         
         if (!lightboxOverlay) {
             lightboxOverlay = document.createElement('div');
             lightboxOverlay.id = 'lightbox-overlay';
+            lightboxOverlay.className = 'lightbox-overlay';
             lightboxOverlay.setAttribute('role', 'dialog');
             lightboxOverlay.setAttribute('aria-modal', 'true');
             lightboxOverlay.setAttribute('aria-label', 'Galeria de imagens');
@@ -389,7 +415,7 @@
         let currentIndex = 0;
         let images = [];
 
-        const projectsContainer = document.getElementById('projects-grid');
+        // Usa a variável projectsContainer já declarada no início da função
         if (projectsContainer) {
             projectsContainer.addEventListener('click', function(e) {
                 const link = e.target.closest('[data-lightbox]');
@@ -486,7 +512,7 @@
 
         // Adiciona marcador em Lisboa
         const marker = L.marker([lisboaLat, lisboaLng]).addTo(map);
-        marker.bindPopup('<b>João de Deus</b><br>Desenvolvimento Web<br>Lisboa, Portugal').openPopup();
+        marker.bindPopup('<b>Luiz Antonio</b><br>Estudante de Desenvolvimento Web<br>Lisboa, Portugal').openPopup();
 
         // Adiciona informações abaixo do mapa
         const infoDiv = document.createElement('div');
@@ -499,7 +525,7 @@
         infoDiv.innerHTML = `
             <p style="margin: 5px 0;"><i class="bi bi-geo-alt" style="color: #e74c3c;"></i> <strong>Lisboa, Portugal</strong></p>
             <p style="margin: 5px 0;"><i class="bi bi-clock" style="color: #3498db;"></i> Seg - Sex: 9h - 18h</p>
-            <p style="margin: 5px 0;"><i class="bi bi-envelope" style="color: #27ae60;"></i> contato@joaodedeus.com</p>
+            <p style="margin: 5px 0;"><i class="bi bi-envelope" style="color: #27ae60;"></i> luizantonio@email.com</p>
         `;
 
         mapContainer.parentNode.insertBefore(infoDiv, mapContainer.nextSibling);

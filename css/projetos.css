@@ -1,80 +1,107 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
+  background-color: #0a0a1a;
 }
 
+/* ===== HEADER ===== */
 header {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid greenyellow;
+  border-bottom: 1px solid #62a87c;
   background-color: #040028;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  text-align: center;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.859);
-  padding: 1rem;
-  margin: 0 auto;
+header .logo a img {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
 }
 
-
-
+/* ===== MAIN ===== */
 main {
-  width: 96%;
-  padding: 0.3rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 1rem;
   align-items: center;
-  background-color: #121212;
   color: wheat;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== PROJECTS SECTION ===== */
+.projects-section {
+  padding: 3rem 1.5rem;
 }
 
 main #titulo-projetos {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  border-bottom: 2px solid yellow;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom: 2px solid #7ee081;
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
+  color: #7ee081;
+  text-align: center;
 }
 
+/* ===== FOOTER ===== */
 footer {
   width: 100%;
-  padding: 21px 4%;
+  padding: 2rem 4%;
   background-color: #462255;
   color: wheat;
 }
 
 footer p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 footer a {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: wheat;
   text-decoration: none;
 }
 
 footer a:hover {
-  color: #62a87c;
+  color: #7ee081;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (min-width: 768px) {
+  .projects-section {
+    padding: 4rem 2rem;
+  }
+
+  main #titulo-projetos {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .projects-section {
+    padding: 5rem 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    max-width: 1400px;
+  }
+
+  .projects-section {
+    padding: 5rem 4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .projects-section {
+    padding: 2rem 1rem;
+  }
+
+  main #titulo-projetos {
+    font-size: 2rem;
+  }
 }

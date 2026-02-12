@@ -1,86 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfólio de João de Deus, contendo todo seu conhecimento em desenvolvimento de websites. Conheça seu trabalho">
-
+        content="Projetos de João de Deus - Portfólio de desenvolvimento web, design UX/UI e aplicações.">
     <meta name="author" content="João de Deus">
-
     <meta name="keywords"
-        content="Desenvolvedora web, web developer, front-end, back-end, UX/UI, portfólio, projetos web, serviços de desenvolvimento web, HTML, CSS, JavaScript">
+        content="Desenvolvedor web, web developer, front-end, back-end, UX/UI, portfólio, projetos web, HTML, CSS, JavaScript">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Portfólio - João de Deus</title>
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/projetos.css">
 
-    
+    <title>Projetos - João de Deus</title>
 </head>
-<body>
-    <header class="col-12 d-flex">
-        <div class="logo col-4">
-            <a href="#"><img class="img-logo" id="img-logo" src="imagens/logo02-jane-doe.png"
-                    alt="logotipo de João de Deus"></a>
-        </div>
-        z     
-    </header> 
-    <main>
-        <section class="container-fluid justify-content-center align-items-center">
-            <h1 id="titulo-projetos">Os meus Projetos</h1>
-            
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="frontend">Front-end</button>
-                <button class="filter-btn" data-filter="backend">Back-end</button>
-                <button class="filter-btn" data-filter="uxui">UX/UI</button>
-            </div>
 
-            <div id="projects-grid" class="projects-grid"></div>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagens/back-end.jpeg" alt="Logotipo de João de Deus" class="img-logo" id="img-logo">
+            </a>
+        </div>
+
+        <button class="navbar-toggler" type="button" id="menu-toggle" aria-label="Abrir menu de navegação"
+            aria-expanded="false">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="index.html#sobre-mim">Sobre</a>
+            <a href="projetos.html" class="active">Projetos</a>
+            <a href="index.html#servicos">Serviços</a>
+            <a href="contatos.html">Contatos</a>
+            <a href="#pesquisa" aria-label="Pesquisar"><i class="bi bi-search"></i></a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <div class="container">
+                <h1 id="titulo-projetos">Os meus Projetos</h1>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="frontend">Front-end</button>
+                    <button class="filter-btn" data-filter="backend">Back-end</button>
+                    <button class="filter-btn" data-filter="uxui">UX/UI</button>
+                </div>
+
+                <div id="projects-grid" class="projects-grid"></div>
+            </div>
         </section>
     </main>
 
-    <div id="lightbox-overlay" class="lightbox-overlay">
+    <!-- Lightbox -->
+    <div id="lightbox-overlay" class="lightbox-overlay" role="dialog" aria-modal="true"
+        aria-label="Galeria de imagens">
         <div class="lightbox-content">
-            <button class="lightbox-close">&times;</button>
-            <button class="lightbox-prev"><i class="bi bi-chevron-left"></i></button>
+            <button class="lightbox-close" aria-label="Fechar galeria">&times;</button>
+            <button class="lightbox-prev" aria-label="Imagem anterior"><i class="bi bi-chevron-left"></i></button>
             <img src="" alt="" class="lightbox-image">
-            <button class="lightbox-next"><i class="bi bi-chevron-right"></i></button>
+            <button class="lightbox-next" aria-label="Próxima imagem"><i class="bi bi-chevron-right"></i></button>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <nav class="footer-1 row">
-            <div class="col-2">
-                <img class="img-logo img-100" src="imagens/logo02-jane-doe.png" width="170px" height="70px"
-                    alt="logotipo de João de Deus">
-            </div>
-            <div class="col-10">
-                <ul class="no-bullets" style="text-align: right;">
-                    <li style="display: inline-block;">
-                        <a href="#"><i class="bi bi-envelope"></i></a>
+        <nav class="footer-nav">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="imagens/logo02-jane-doe.png" alt="Logotipo de João de Deus" class="img-logo">
+                </div>
+                <ul class="footer-social">
+                    <li>
+                        <a href="mailto:contato@joaodedeus.com" aria-label="Enviar e-mail">
+                            <i class="bi bi-envelope"></i>
+                        </a>
                     </li>
-                    <li style="display: inline-block;">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
+                    <li>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
                     </li>
-                    <li style="display: inline-block;">
-                        <a href="#"><i class="bi bi-instagram"></i></a>
+                    <li>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
                     </li>
-                    <li style="display: inline-block;">
-                        <a href="#"><i class="bi bi-telephone"></i></a>
+                    <li>
+                        <a href="tel:+351000000000" aria-label="Telefone">
+                            <i class="bi bi-telephone"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 João de Deus</p>
+                <div class="footer-links">
+                    <a href="#">Política de privacidade</a>
+                    <a href="#">Termos de uso</a>
+                </div>
+            </div>
         </nav>
-        <div class="row">
-            <p style="float: right;">&#169; 2025 João de Deus</p>
-            <a href="#">Política de privacidade</a>
-            <a href="#">Termos de uso</a>
-        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -88,4 +119,5 @@
         crossorigin="anonymous"></script>
     <script src="javascript/script.js"></script>
 </body>
+
 </html>
