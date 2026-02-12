@@ -1,0 +1,26 @@
+1. Validação do Formulário de Contacto (contatos.js):
+Validação em tempo real (nome, telefone, e-mail, mensagem)
+Feedback visual com bordas coloridas
+Mensagem de sucesso animada
+
+2. Galeria Dinâmica com Lightbox (script.js):
+Lightbox personalizado com navegação (setas/teclado)
+Overlay com botões prev/next
+
+3. Mapa Incorporado (script.js#L271-L290):
+Google Maps iframe integrado
+Informações de localização e horário
+
+4. Calculadora de Orçamento (index.html):
+Serviços com preços carregados via JSON
+Opções de urgência e número de páginas
+Cálculo automático em tempo real
+
+5. FAQ Accordion (script.js#L7-L56):
+Expansão/colapso suave com animação
+Dados carregados dinamicamente do JSON
+
+6. Carregamento Dinâmico de Projetos (projetos.html):
+Projetos carregados via projetos.json
+Filtros por categoria (Todos, Front-end, Back-end, UX/UI)
+Cards com animação e hover effects

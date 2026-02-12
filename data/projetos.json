@@ -1,0 +1,118 @@
+{
+  "projetos": [
+    {
+      "id": 1,
+      "titulo": "E-commerce Premium",
+      "categoria": "frontend",
+      "descricao": "Plataforma de e-commerce personalizável e otimizada para vendas online com design responsivo.",
+      "imagem": "imagens/transformacao-digital.webp",
+      "imagemFull": "imagens/desenvolvimentoWeb002.jpeg",
+      "tecnologias": ["HTML", "CSS", "JavaScript", "React"],
+      "link": "#"
+    },
+    {
+      "id": 2,
+      "titulo": "App Mobile Fitness",
+      "categoria": "backend",
+      "descricao": "Aplicação móvel com design minimalista e recursos interativos para acompanhamento de treinos.",
+      "imagem": "imagens/transformacao-digital.webp",
+      "imagemFull": "imagens/des.jpeg",
+      "tecnologias": ["Node.js", "MongoDB", "Express"],
+      "link": "#"
+    },
+    {
+      "id": 3,
+      "titulo": "Site Institucional Moderno",
+      "categoria": "uxui",
+      "descricao": "Site institucional moderno e responsivo para melhorar a presença digital de empresas.",
+      "imagem": "imagens/transformacao-digital.webp",
+      "imagemFull": "imagens/des004.jpeg",
+      "tecnologias": ["Figma", "Adobe XD", "CSS"],
+      "link": "#"
+    },
+    {
+      "id": 4,
+      "titulo": "Dashboard Analytics",
+      "categoria": "frontend",
+      "descricao": "Painel de controle interativo para visualização de dados e métricas em tempo real.",
+      "imagem": "imagens/transformacao-digital.webp",
+      "imagemFull": "imagens/des006.jpeg",
+      "tecnologias": ["Vue.js", "D3.js", "Tailwind"],
+      "link": "#"
+    },
+    {
+      "id": 5,
+      "titulo": "API RESTful",
+      "categoria": "backend",
+      "descricao": "API robusta e escalável para integração de sistemas empresariais.",
+      "imagem": "imagens/transformacao-digital.webp",
+      "imagemFull": "imagens/desenvolvimentoWeb002.jpeg",
+      "tecnologias": ["Python", "Django", "PostgreSQL"],
+      "link": "#"
+    },
+    {
+      "id": 6,
+      "titulo": "Redesign App Bancário",
+      "categoria": "uxui",
+      "descricao": "Redesign completo da experiência do utilizador para aplicação bancária móvel.",
+      "imagem": "imagens/transformacao-digital.webp",
+      "imagemFull": "imagens/des.jpeg",
+      "tecnologias": ["Figma", "Prototyping", "User Research"],
+      "link": "#"
+    }
+  ],
+  "servicos": [
+    {
+      "nome": "Website Básico",
+      "preco": 500,
+      "descricao": "Site de até 5 páginas"
+    },
+    {
+      "nome": "Website Profissional",
+      "preco": 1200,
+      "descricao": "Site de até 10 páginas com formulários"
+    },
+    {
+      "nome": "E-commerce",
+      "preco": 2500,
+      "descricao": "Loja online completa"
+    },
+    {
+      "nome": "Aplicação Web",
+      "preco": 4000,
+      "descricao": "Sistema web personalizado"
+    },
+    {
+      "nome": "Design UX/UI",
+      "preco": 800,
+      "descricao": "Design de interfaces"
+    },
+    {
+      "nome": "Manutenção Mensal",
+      "preco": 150,
+      "descricao": "Suporte e atualizações"
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "Qual é o prazo médio para desenvolvimento de um website?",
+      "resposta": "O prazo varia conforme a complexidade do projeto. Um website básico leva de 2 a 3 semanas, enquanto projetos mais complexos podem levar de 1 a 3 meses."
+    },
+    {
+      "pergunta": "Quais formas de pagamento são aceitas?",
+      "resposta": "Aceito transferência bancária, MBWay, PayPal e parcelamento em até 3x. O pagamento é dividido em 50% no início e 50% na entrega."
+    },
+    {
+      "pergunta": "O website será responsivo?",
+      "resposta": "Sim! Todos os meus projetos são desenvolvidos com design responsivo, adaptando-se perfeitamente a dispositivos móveis, tablets e desktops."
+    },
+    {
+      "pergunta": "Oferece suporte após a entrega?",
+      "resposta": "Sim, ofereço 30 dias de suporte gratuito após a entrega. Após esse período, disponibilizo planos de manutenção mensal."
+    },
+    {
+      "pergunta": "Posso acompanhar o desenvolvimento do projeto?",
+      "resposta": "Claro! Mantenho comunicação constante e envio atualizações semanais do progresso. Também disponibilizo acesso a um ambiente de testes."
+    }
+  ]
+}
