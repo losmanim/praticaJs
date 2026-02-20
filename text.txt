@@ -8,7 +8,8 @@ Lightbox personalizado com navegação (setas/teclado)
 Overlay com botões prev/next
 
 3. Mapa Incorporado (script.js#L271-L290):
-Google Maps iframe integrado
+// Google Maps iframe integrado
+Leaflet
 Informações de localização e horário
 
 4. Calculadora de Orçamento (index.html):
