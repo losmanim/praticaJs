@@ -1,0 +1,111 @@
+1. Criação de base de dados e inserção de dados em tabelas a serem visualizadas numa página de administrador.
+2. Criação de views personalizadas para apresentação de informações específicas.
+
+### Criar Base de Dados
+```sql
+-- Criar nova base de dados
+CREATE DATABASE nome_projeto CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Selecionar a base de dados
+USE nome_projeto;
+```
+
+### Criar Tabelas (Exemplo: Sistema de Gestão)
+```sql
+-- Tabela de utilizadores
+CREATE TABLE utilizadores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    perfil ENUM('admin', 'utilizador') DEFAULT 'utilizador',
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status TINYINT(1) DEFAULT 1
+);
+
+-- Tabela de projetos
+CREATE TABLE projetos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(200) NOT NULL,
+    descricao TEXT,
+    cliente_id INT,
+    data_inicio DATE,
+    data_fim DATE,
+    orcamento DECIMAL(10,2),
+    status ENUM('pendente', 'em_progresso', 'concluido', 'cancelado') DEFAULT 'pendente',
+    FOREIGN KEY (cliente_id) REFERENCES utilizadores(id)
+);
+
+-- Tabela de tarefas
+CREATE TABLE tarefas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    projeto_id INT NOT NULL,
+    titulo VARCHAR(200) NOT NULL,
+    descricao TEXT,
+    responsavel_id INT,
+    data_vencimento DATE,
+    prioridade ENUM('baixa', 'media', 'alta') DEFAULT 'media',
+    status ENUM('por_fazer', 'em_progresso', 'concluida') DEFAULT 'por_fazer',
+    FOREIGN KEY (projeto_id) REFERENCES projetos(id),
+    FOREIGN KEY (responsavel_id) REFERENCES utilizadores(id)
+);
+```
+
+### Inserir Dados de Exemplo
+```sql
+-- Inserir utilizadores
+INSERT INTO utilizadores (nome, email, senha, perfil) VALUES
+('Administrador', 'admin@exemplo.com', SHA2('senha123', 256), 'admin'),
+('João Silva', 'joao@exemplo.com', SHA2('joao123', 256), 'utilizador'),
+('Maria Santos', 'maria@exemplo.com', SHA2('maria123', 256), 'utilizador');
+
+-- Inserir projetos
+INSERT INTO projetos (nome, descricao, cliente_id, data_inicio, orcamento, status) VALUES
+('Website Corporativo', 'Desenvolvimento de site completo para empresa ABC', 2, '2024-01-15', 5000.00, 'em_progresso'),
+('App Mobile', 'Aplicativo iOS para delivery', 3, '2024-02-01', 15000.00, 'pendente'),
+('Sistema ERP', 'Sistema de gestão empresarial', 2, '2024-01-20', 25000.00, 'em_progresso');
+
+-- Inserir tarefas
+INSERT INTO tarefas (projeto_id, titulo, descricao, responsavel_id, data_vencimento, prioridade, status) VALUES
+(1, 'Design Homepage', 'Criar layout da página inicial', 3, '2024-01-25', 'alta', 'em_progresso'),
+(1, 'Desenvolvimento Backend', 'Implementar API REST', 2, '2024-02-10', 'alta', 'por_fazer'),
+(2, 'UI/UX Design', 'Prototipagem das telas', 3, '2024-02-15', 'media', 'por_fazer'),
+(3, 'Análise de Requisitos', 'Levantamento de necessidades', 2, '2024-01-25', 'alta', 'concluida');
+```
+
+### Criar Página de Administrador (PHP)
+```php
+<?php
+// config.php
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'nome_projeto');
+
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
+?>
+
+<?php
+// admin_dashboard.php
+require_once 'config.php';
+
+// Estatísticas gerais
+$stats = [
+    'total_utilizadores' => $conn->query("SELECT COUNT(*) as count FROM utilizadores")->fetch_assoc()['count'],
+    'total_projetos' => $conn->query("SELECT COUNT(*) as count FROM projetos")->fetch_assoc()['count'],
+    'projetos_ativos' => $conn->query("SELECT COUNT(*) as count FROM projetos WHERE status = 'em_progresso'")->fetch_assoc()['count'],
+    'total_tarefas' => $conn->query("SELECT COUNT(*) as count FROM tarefas")->fetch_assoc()['count']
+];
+
+// Listar projetos recentes
+$projetos_recentes = $conn->query("
+    SELECT p.*, u.nome as cliente_nome 
+    FROM projetos p 
+    JOIN utilizadores u ON p.cliente_id = u.id 
+    ORDER BY p.data_inicio DESC 
+    LIMIT 5
+");
+?>
